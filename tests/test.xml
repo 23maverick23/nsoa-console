@@ -1,0 +1,67 @@
+<PULL>
+    <CUSTOMER_TO_CUSTOMER>
+        OA_FIELDS web,email,countries,notes
+        OA_CUSTOM_FIELDS countries
+        OA_FIELDS_INITIAL_ONLY web,email
+        OA_CUSTOM_FIELDS_INITIAL_ONLY countries
+        NS_FIELDS url,email,memo,custentity36
+        NS_CUSTOM_FIELDS custentity36
+
+        web url
+        email email
+        countries custentity36
+
+        <OpenAir_Field NetSuite_Field>
+            'NetSuite_Value_1' 'OpenAir_Value_1'
+            'NetSuite_Value_2' 'OpenAir_Value_2'
+            'NetSuite_Value_3' 'OpenAir_Value_3'
+        </OpenAir_Field>
+
+        IF <<END
+            IF (email = 'jjhaveri@foster.com') OR (email = 'eng@openair.com') THEN email 'x@oa.com'
+            IF (memo < 1) THEN notes 'No notes.' ELSE notes memo
+        END
+    </CUSTOMER_TO_CUSTOMER>
+
+    <PROJECT_BILLING_RULE_TIME>
+        OA_FIELDS start_date,end_date,category_3_id
+
+        # Use this mapping to set the extended category
+        category_3_id lookup=department:lookup_table=category_3:lookup_by=ns_dep_id:lookup_return=id
+        start_date _TODAY
+        end_date _REMOVE
+
+        # invalid characters are highlighted
+        notes “this is badly formatted”
+    </PROJECT_BILLING_RULE_TIME>
+</PULL>
+
+<PUSH>
+    <INVOICE_TO_INVOICE>
+        OA_FIELDS number
+        NS_CUSTOM_FIELDS_FROM_SO_INVOICE_HEADER custbody_date_created
+
+        custbody_date_created _TODAY
+
+        FILTER <<END
+            number >= 286
+        END
+    </INVOICE_TO_INVOICE>
+
+    <INVOICE_LINE_TIME_GROUP_BY>
+        OA_FIELDS user_id,notes,hour,date,total,rate,id
+        NS_FIELDS description
+        OA_FIELDS_GROUP_BY id
+        OA_FIELDS_SORT_BY user.name
+
+        description 'Name:', lookup=user_id:lookup_table=user:lookup_by=id:lookup_return=name, '\\nDate:', date, '\\nHours:', hour, '\\nRate:', rate, '\\nNotes:', notes, '\\nAmount:', total, '\\n\\n\\n'
+    </INVOICE_LINE_TIME_GROUP_BY>
+
+    <EXPENSE_REP_TO_EXPENSE_REP>
+        OA_FIELDS user_id
+
+        FILTER <<END
+            (user.do_not_export_envelope <> '1')
+        END
+    </EXPENSE_REP_TO_EXPENSE_REP>
+</PUSH>

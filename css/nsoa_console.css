@@ -1,0 +1,112 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+nav {
+    display: block;
+}
+#nsoa-toolbar {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    min-height: 25px;
+    height: 25px;
+    width: 100%;
+    z-index: 100;
+    position: fixed;
+    color: #373b41;
+    background-color: #c5c8c6;
+    border-bottom: 1px solid #969896;
+    margin-right: 0;
+    margin-left: 0;
+    right: 0;
+    left: 0;
+}
+.nsoa-container-fluid {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.nsoa-container-collapse {
+    display: block !important;
+    height: auto !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+    width: auto;
+    border-top: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+.nsoa-nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    float: left;
+    margin: 0;
+}
+.nsoa-nav > li {
+    position: relative;
+    display: block;
+    float: left;
+}
+.nsoa-nav > li > a {
+    line-height: 5px;
+    position: relative;
+    display: block;
+    padding: 5px 10px;
+    top: -1px;
+    text-decoration: none;
+    color: #373b41;
+    border-bottom: 0;
+}
+.nsoa-nav > li > a:hover {
+    color: #282a2e;
+    background-color: #81a2be;
+}
+.nsoa-nav > .active > a {
+    background-color: #b5bd68;
+}
+.nsoa-nav > .active-df > a {
+    background-color: #de935f;
+}
+.nsoa-nav > .active-cf > a {
+    background-color: #b294bb;
+}
+.nsoa-toolbar-btn {
+    font-size: 12pt;
+}
+#nsoa-editor {
+    position: fixed;
+    top: 25px;
+    bottom: 0;
+    right: 0;
+    left: 50%;
+    z-index: 1;
+    font-family: Monaco, Menlo, monospace;
+    font-size: 10pt;
+}
+#nsoa-docs {
+    position: fixed;
+    top: 25px;
+    bottom: 0;
+    right: 50%;
+    left: 0;
+    z-index: 1;
+    font-size: 10pt;
+}
+.nsoa-docs-hide {
+    right: 100% !important;
+}
+.nsoa-docs-full {
+    right: 0 !important;
+}
+.nsoa-editor-full {
+    left: 0 !important;
+}
+.nsoa-editor-hide {
+    left: 100% !important;
+}
+.nsoa-pull-right {
+    float: right;
+}
