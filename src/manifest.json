@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "NSOA Console",
     "version": "0.0.1",
-    "description": "Adds a custom editor to Chrome devtools.",
+    "description": "Adds a custom XML editor to Chrome devtools.",
     "icons": {
         "128": "128.png"
     },
@@ -14,7 +14,8 @@
         "*://*/*"
     ],
     "web_accessible_resources": [
-        "ace/*",
+        "ace/src/*",
+        "store/*",
         "css/*",
         "fonts/*"
     ],

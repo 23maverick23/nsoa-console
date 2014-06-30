@@ -183,10 +183,10 @@ var XmlHighlightRules = function(normalize) {
         }],
 
         nsoa_fields: [{
-            token: 'storage.type.xml',
+            token: 'keyword.xml',
             regex: 'OA_(FIELDS(|_(SORT|GROUP)_BY|_INITIAL_ONLY)|CUSTOM(_FIELDS(|_INITIAL_ONLY)))(?=\\s)',
         }, {
-            token: 'storage.type.xml',
+            token: 'keyword.xml',
             regex: 'NS_(FIELDS|CUSTOM_FIELDS(|_FROM_SO_INVOICE_(HEADER|LINE_ITEM)))(?=\\s)'
         }],
 
@@ -266,6 +266,31 @@ var XmlHighlightRules = function(normalize) {
            regex: '[\\u2000-\\u206F]'
         }]
     };
+
+    var keywordMapper = this.createKeywordMapper({
+        "tag" : "VENDORBILL_TO_PURCHASEORDER|VENDORBILL_TO_PURCHASE_ITEM|VENDOR_TO_VENDOR|" +
+        "VENDOR_TO_USER|TIMETYPE|TIMESHEET|TIMEENTRY_TO_TIMEBILL|SO_TO_CUSTOMERPO|" +
+        "REVREC_RULE_TIME|REVREC_RULE_PERCENT_COMPLETE|REVREC_RULE_INC_FORECAST|" +
+        "REVREC_RULE_FF_PERCENT_COMPLETE|REVREC_RULE_FF_DATE|REVREC_RULE_AS_BILLED|" +
+        "REVENUE_TO_JOURNAL|REVENUE_PURCHASE_TO_JOURNAL|PUSH|" +
+        "PURCHASEORDER_TO_PURCHASEORDER|PURCHASE_ITEM|PULL|PTA_JOB_CODE_TO_OPP_ITEM|" +
+        "PROJECT_TO_JOB|PROJECT_BILLING_RULE_TIME|PROJECT_BILLING_RULE_FIXED_FEE|" +
+        "PR_TASK_TO_OPP_ITEM|PAYROLL_TYPE|PAYMENT_TO_PAYMENT|" +
+        "OA_LC_TO_NS_CUSTOM_RECORD|OA_CUSTOMER_TO_NS_CUSTOMER|" +
+        "NS_PR_TASK_TO_OA_PR_TASK|NS_INVOICE_TO_OA_INVOICE|" +
+        "NS_EXPENSE_REP_TO_OA_EXPENSE_REP|JOURNAL_TO_REVENUE|" +
+        "JOURNAL_LINE_DEBIT_PURCHASE|JOURNAL_LINE_DEBIT|JOURNAL_LINE_CREDIT_PURCHASE|" +
+        "JOURNAL_LINE_CREDIT|JOURNAL_LINE|JOB_TO_PROJECT|ITEM_TO_PRODUCT|" +
+        "ITEM_TO_CATEGORY|INVOICE_TO_INVOICE|INVOICE_PURCHASE_VB_LINE|" +
+        "INVOICE_PURCHASE_LINE|INVOICE_PROJECT|INVOICE_LINE_TIME_GROUP_BY|" +
+        "INVOICE_LINE_OTHER_TIME_GROUP_BY|INVOICE_LINE_FIXED_FEE_GROUP_BY|" +
+        "INVOICE_LINE|INVOICE_EXPENSE_LINE|INVOICE_BILLABLE_ITEM_LINE|" +
+        "EXPENSE_REP_TO_VENDORBILL|EXPENSE_REP_TO_EXPENSE_REP|" +
+        "EXPENSE_REP_LINE_TO_VENDORBILL_LINE|EXPENSE_REP_LINE_TAX|EXPENSE_REP_LINE|" +
+        "EXPENSE_CATEGORY_TO_ITEM|EMPLOYEE_TO_USER|DEPOSIT_TO_RETAINER|" +
+        "CUSTOMER_TO_CUSTOMER|CREDIT_MEMO_TO_CREDIT|COST_CENTER|CONTACT_TO_CONTACT|" +
+        "CATEGORY_5|CATEGORY_4|CATEGORY_3|CATEGORY_2|CATEGORY_1|BILLPAYMENT_TO_REIMBURSEMENT"
+    }, "identifier");
 
     if (this.constructor === XmlHighlightRules)
         this.normalizeRules();
@@ -696,6 +721,7 @@ var Mode = function() {
     this.HighlightRules = XmlHighlightRules;
     this.$behaviour = new XmlBehaviour();
     this.foldingRules = new XmlFoldMode();
+    this.$keywordList = XmlHighlightRules.$keywordList;
 };
 
 oop.inherits(Mode, TextMode);

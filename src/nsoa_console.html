@@ -11,48 +11,76 @@
             <div class="nsoa-container-collapse">
                 <ul class="nsoa-nav">
                     <li class="nsoa-toolbar-btn">
-                        <a href="#" id="nsoa-docs-full"><i class="fa fa-arrows-alt"></i> Full Docs</a>
+                        <a href="#" id="nsoa-docs-full" title="Click to use full width documentation"><i class="fa fa-arrows-alt"></i> Full Docs</a>
                     </li>
                     <li class="nsoa-toolbar-btn active">
-                        <a href="#" id="nsoa-docs-backoffice"><i class="fa fa-building"></i> Backoffice</a>
+                        <a href="#" id="nsoa-docs-backoffice" title="Click show backoffice documentation"><i class="fa fa-building"></i> Backoffice</a>
                     </li>
                     <li class="nsoa-toolbar-btn">
-                        <a href="#" id="nsoa-docs-guide"><i class="fa fa-book"></i> PDF Guide</a>
+                        <a href="#" id="nsoa-docs-guide" title="Click to show PDF guide documentation"><i class="fa fa-book"></i> PDF Guide</a>
                     </li>
                     <li class="nsoa-toolbar-btn">
-                        <a href="#" id="nsoa-docs-schema"><i class="fa fa-globe"></i> Schema Browser</a>
+                        <a href="#" id="nsoa-docs-schema" title="Click to show 13.2 schema documentation"><i class="fa fa-globe"></i> Schema Browser</a>
                     </li>
                 </ul>
+
                 <ul class="nsoa-nav pull-right">
+                    <li class="nsoa-toolbar-btn nsoa-toolbar-btn-danger">
+                        <a href="#" id="nsoa-console-clear" title="Double-click to clear editor contents">Clear Mappings <i class="fa fa-ban"></i></a>
+                    </li>
                     <li class="nsoa-toolbar-btn">
-                        <a href="#" id="nsoa-theme-day">Day Mode <i class="fa fa-sun-o"></i></a>
+                        <a href="#" id="nsoa-console-save" title="Double-click to save editor contents to localStorage">Save Mappings <i class="fa fa-save"></i></a>
+                    </li>
+                    <li class="nsoa-toolbar-btn">
+                        <a href="#" id="nsoa-theme-day" title="Click to use light theme">Day Mode <i class="fa fa-sun-o"></i></a>
                     </li>
                     <li class="nsoa-toolbar-btn active">
-                        <a href="#" id="nsoa-theme-night">Night Mode <i class="fa fa-moon-o"></i></a>
+                        <a href="#" id="nsoa-theme-night" title="Click to use dark theme">Night Mode <i class="fa fa-moon-o"></i></a>
                     </li>
                     <li class="nsoa-toolbar-btn">
-                        <a href="#" id="nsoa-console-full">Full Console <i class="fa fa-arrows-alt"></i></a>
+                        <a href="#" id="nsoa-console-full" title="Click to use full width editor">Full Console <i class="fa fa-arrows-alt"></i></a>
                     </li>
                 </ul>
+
+                <!-- BETA
+                <ul class="nsoa-nav nsoa-nav-search pull-right">
+                    <li class="nsoa-toolbar-btn">
+                        <form class="nsoa-form" role="search">
+                            <div class="nsoa-form-group">
+                                <input id="nsoa-search-term" type="text" class="nsoa-form-control" placeholder="Search mappings">
+                            </div>
+                        </form>
+                    </li>
+                    <li class="nsoa-toolbar-btn">
+                        <a href="#" id="nsoa-search-btn"><i class="fa fa-search"></i> Search</a>
+                    </li>
+                    <li class="nsoa-toolbar-btn">
+                        <a href="#" id="nsoa-search-prev"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="nsoa-toolbar-btn">
+                        <a href="#" id="nsoa-search-next"><i class="fa fa-chevron-down"></i></a>
+                    </li>
+                </ul>
+                -->
             </div>
         </div>
     </nav>
 
     <div id="nsoa-docs">
-        <iframe src="https://www.openair1.com/docs/netsuite.html" width="100%" height="100%" frameBorder="0" seamless="seamless">THere was an error.</iframe>
+        <iframe src="https://www.openair1.com/docs/netsuite.html" width="100%" height="100%" frameBorder="0" seamless="seamless"></iframe>
     </div>
 
     <div id="nsoa-editor"></div>
 
 <!-- Begin javascript here -->
 
+<script src="store/store.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="ace/src/ace.js" type="text/javascript" charset="utf-8"></script>
 <script src="ace/src/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
 
 <script src="ace/src/mode-xml.js" type="text/javascript" charset="utf-8"></script>
 <script src="ace/src/theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>
 <script src="ace/src/theme-tomorrow.js" type="text/javascript" charset="utf-8"></script>
-<script src="ace/src/snippets/xml.js" type="text/javascript" charset="utf-8"></script>
 <script src="nsoa_console.js" type="text/javascript" charset="utf-8"></script>
 
 </body>

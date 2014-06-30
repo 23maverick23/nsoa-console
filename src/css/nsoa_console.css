@@ -45,6 +45,10 @@ nav {
     float: left;
     margin: 0;
 }
+.nsoa-nav-search {
+    position: fixed;
+    left: 50%;
+}
 .nsoa-nav > li {
     position: relative;
     display: block;
@@ -63,6 +67,9 @@ nav {
 .nsoa-nav > li > a:hover {
     color: #282a2e;
     background-color: #81a2be;
+}
+.nsoa-nav > li.nsoa-toolbar-btn-danger > a:hover {
+    background-color: #cc6666;
 }
 .nsoa-nav > .active > a {
     background-color: #b5bd68;
@@ -109,4 +116,35 @@ nav {
 }
 .nsoa-pull-right {
     float: right;
+}
+.nsoa-form {
+    width: auto;
+    padding: 0 5px 0 0;
+    margin-right: 0;
+    margin-left: 0;
+    border: 0;
+    box-shadow: none;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+}
+.nsoa-form-group {
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+.nsoa-form-control {
+    display: inline-block;
+    width: auto;
+    vertical-align: middle;
+    height: 10px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #373b41;
+    background-color: #e0e0e0;
+    background-image: none;
+    border: 1px solid #969896;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
