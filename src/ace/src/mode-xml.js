@@ -34,7 +34,6 @@ var XmlHighlightRules = function(normalize) {
             {include: "nsoa_operator"},
             {include: "nsoa_string"},
             {include: "nsoa_number"},
-            {include: "nsoa_escape"},
             {include: "nsoa_invalid"},
 
             {include : "tag"},
@@ -213,7 +212,7 @@ var XmlHighlightRules = function(normalize) {
             regex: '((FILTER|IF)\\s<<END)',
         }, {
             token: 'entity.name.function.xml',
-            regex: '(?:[^<])(END$)'
+            regex: '(?:[^<]?)(END$)'
         }],
 
         nsoa_conditional: [{
@@ -233,7 +232,7 @@ var XmlHighlightRules = function(normalize) {
                 'variable.parameter.xml',
                 'text.xml'
             ],
-            regex: '(\\slookup=)(\\w+)(:lookup_table=)(\\w+)(:lookup_by=)(\\w+)(:lookup_return=)(\\w+)'
+            regex: '(lookup=)(\\w+)(:lookup_table=)(\\w+)(:lookup_by=)(\\w+)(:lookup_return=)(\\w+)'
         }],
 
         nsoa_table: [{
@@ -243,22 +242,17 @@ var XmlHighlightRules = function(normalize) {
 
         nsoa_operator: [{
             token: 'keyword.operator.xml',
-            regex: '(?:\\s)(>)(?:\\s)|(?:\\s)(<)(?:\\s)|(?:\\s)(=)(?:\\s)|(?:\\s)(>=)(?:\\s)|(?:\\s)(<=)(?:\\s)|(?:\\s)(<>)(?:\\s)'
+            regex: '(?:\\s)(>)(?=\\s)|(?:\\s)(<)(?=\\s)|(?:\\s)(=)(?=\\s)|(?:\\s)(>=)(?=\\s)|(?:\\s)(<=)(?=\\s)|(?:\\s)(<>)(?=\\s)'
+        }],
+
+        nsoa_number: [{
+            token: 'constant.numeric.xml',
+            regex: '(?:\\s+)(\\d+)'
         }],
 
         nsoa_string: [{
             token: 'string.quoted.single.xml',
             regex: '\'(.)*?\''
-        }],
-
-        nsoa_number: [{
-            token: 'constant.numeric.xml',
-            regex: '(\\s+\\d+)'
-        }],
-
-        nsoa_escape: [{
-            token: 'constant.character.escape.xml',
-            regex: '(\\n)|(\\r)|(\\t)'
         }],
 
         nsoa_invalid: [{
@@ -277,8 +271,11 @@ var XmlHighlightRules = function(normalize) {
         "PROJECT_TO_JOB|PROJECT_BILLING_RULE_TIME|PROJECT_BILLING_RULE_FIXED_FEE|" +
         "PR_TASK_TO_OPP_ITEM|PAYROLL_TYPE|PAYMENT_TO_PAYMENT|" +
         "OA_LC_TO_NS_CUSTOM_RECORD|OA_CUSTOMER_TO_NS_CUSTOMER|" +
-        "NS_PR_TASK_TO_OA_PR_TASK|NS_INVOICE_TO_OA_INVOICE|" +
-        "NS_EXPENSE_REP_TO_OA_EXPENSE_REP|JOURNAL_TO_REVENUE|" +
+        "OA_CUSOM_FIELDS_INITIAL_ONLY|OA_CUSTOM_FIELDS|OA_FIELDS_INITIAL_ONLY|" +
+        "OA_FIELDS|OA_FIELDS_SORT_BY|OA_FIELDS_GROUP_BY|" +
+        "NS_PR_TASK_TO_OA_PR_TASK|NS_INVOICE_TO_OA_INVOICE|NS_EXPENSE_REP_TO_OA_EXPENSE_REP|" +
+        "NS_CUSTOM_FIELDS_FROM_SO_INVOICE_HEADER|NS_CUSTOM_FIELDS_FROM_SO_INVOICE_LINE_ITEM|" +
+        "NS_CUSTOM_FIELDS|NS_FIELDS|JOURNAL_TO_REVENUE|" +
         "JOURNAL_LINE_DEBIT_PURCHASE|JOURNAL_LINE_DEBIT|JOURNAL_LINE_CREDIT_PURCHASE|" +
         "JOURNAL_LINE_CREDIT|JOURNAL_LINE|JOB_TO_PROJECT|ITEM_TO_PRODUCT|" +
         "ITEM_TO_CATEGORY|INVOICE_TO_INVOICE|INVOICE_PURCHASE_VB_LINE|" +

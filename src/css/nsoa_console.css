@@ -12,7 +12,7 @@ nav {
     min-height: 25px;
     height: 25px;
     width: 100%;
-    z-index: 100;
+    z-index: 1001;
     position: fixed;
     color: #373b41;
     background-color: #c5c8c6;
@@ -23,8 +23,8 @@ nav {
     left: 0;
 }
 .nsoa-container-fluid {
-    padding-right: 15px;
-    padding-left: 15px;
+    padding-right: 0;
+    padding-left: 0;
     margin-right: auto;
     margin-left: auto;
 }
@@ -71,11 +71,17 @@ nav {
 .nsoa-nav > li.nsoa-toolbar-btn-danger > a:hover {
     background-color: #cc6666;
 }
+.nsoa-nav > li.nsoa-toolbar-btn-warning > a:hover {
+    background-color: #f0c674;
+}
 .nsoa-nav > .active > a {
     background-color: #b5bd68;
 }
 .nsoa-nav > .active-df > a {
     background-color: #de935f;
+}
+.nsoa-nav > .active-dc > a {
+    background-color: #f0c674;
 }
 .nsoa-nav > .active-cf > a {
     background-color: #b294bb;
@@ -92,6 +98,69 @@ nav {
     z-index: 1;
     font-family: Monaco, Menlo, monospace;
     font-size: 10pt;
+}
+#nsoa-cheat-sheet {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    position: fixed;
+    top: 26px;
+    right: 50%;
+    width: 450px;
+    height: 100%;
+    background-color: #f0c674;
+    border-left: 1px solid #969896;
+    border-right: 1px solid #969896;
+    /*box-shadow: -10px 0 10px -8px #969896;*/
+    overflow: scroll;
+    z-index: 1000;
+}
+.nsoa-list-group {
+    width: 420px;
+    padding: 10px 5px 15px;
+    margin: 5px auto 20px;
+}
+.nsoa-list-group-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #e0e0e0;
+    border: 1px solid #969896;
+    line-height: 1.5;
+    vertical-align: middle;
+}
+.nsoa-list-group-item > h1,
+.nsoa-list-group-item > h2,
+.nsoa-list-group-item > h3,
+.nsoa-list-group-item > h4,
+.nsoa-list-group-item > h5 {
+    margin-bottom: 0;
+}
+.nsoa-list-group-item:first-child {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.nsoa-list-group-item:last-child {
+    margin-bottom: 0;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+kbd {
+    font-family: Monaco, Menlo, monospace;
+    font-size: 12pt;
+    border: 1px solid #969896;
+    padding: 2px 8px;
+    border-radius: 3px;
+    color: #a3685a;
+    background-color: #ffffff;
+}
+.nsoa-code {
+    font-family: Monaco, Menlo, monospace;
+    font-size: 10pt;
+    font-style: italic;
+    color: #a3685a;
+    padding-top: 4px;
+    float: right;
 }
 #nsoa-docs {
     position: fixed;
@@ -116,6 +185,13 @@ nav {
 }
 .nsoa-pull-right {
     float: right;
+}
+.nsoa-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    height: 1px; width: 1px;
+    margin: -1px; padding: 0; border: 0;
 }
 .nsoa-form {
     width: auto;

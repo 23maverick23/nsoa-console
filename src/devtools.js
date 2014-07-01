@@ -1,5 +1,5 @@
 chrome.devtools.panels.create(
-    "NSOA Console",
+    "NSOA",
     "badge.png",
     "nsoa_console.html",
     function callback(panel) {

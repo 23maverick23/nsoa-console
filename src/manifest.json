@@ -15,6 +15,7 @@
     ],
     "web_accessible_resources": [
         "ace/src/*",
+        "ace/src/snippets*",
         "store/*",
         "css/*",
         "fonts/*"

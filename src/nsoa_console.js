@@ -17,14 +17,34 @@
     editor.setDisplayIndentGuides(true);
     editor.setShowPrintMargin(false);
 
-    ace.require("ace/ext/language_tools");
-    editor.setOptions({
-        enableBasicAutocompletion: true,
-        enableSnippets: true,
-        enableLiveAutocompletion: false
+    ace.config.loadModule('ace/ext/language_tools', function () {
+        editor.setOptions({
+            enableBasicAutocompletion: true,
+            enableSnippets: true
+        });
+
+        var snippetManager = ace.require("ace/snippets").snippetManager;
+        var config = ace.require("ace/config");
+
+        ace.config.loadModule("ace/snippets/xml", function(m) {
+            if (m) {
+                snippetManager.files.xml = m;
+                m.snippets = snippetManager.parseSnippetFile(m.snippetText);
+
+                var nsoa_snippets = nsoaGetSnippets();
+
+                // or do this if you already have them parsed
+                nsoa_snippets.forEach(function (s) { m.snippets.push(s); });
+                snippetManager.register(m.snippets, m.scope);
+            }
+        });
+
     });
+
+    ace.require("ace/ext/language_tools");
+
     editor.commands.on("afterExec", function(e){
-        if (e.command.name == "insertstring" && /^[\<]$/.test(e.args)) {
+        if (e.command.name == "insertstring" && /^[\<_]$/.test(e.args)) {
             editor.execCommand("startAutocomplete");
         }
     });
@@ -35,6 +55,39 @@
 
     editor.navigateFileEnd();
     editor.focus();
+
+    function nsoaGetSnippets() {
+        return [{
+            name: "lookup",
+            content: "lookup=${1:ns_field}:lookup_table=${2:oa_table}:lookup_by=${3:oa_field}:lookup_return=${4:oa_field}",
+            tabTrigger: "lookup"
+        },
+        {
+            name: "IF...END",
+            content: "IF <<END\n    ${1}\nEND\n",
+            tabTrigger: "if_end"
+        },
+        {
+            name: "IF...THEN",
+            content: "IF ${1:condition} THEN ${2:field} ${3:value}",
+            tabTrigger: "if_then"
+        },
+        {
+            name: "IF...THEN...ELSE",
+            content: "IF ${1:condition} THEN ${2:field} ${3:value} ELSE ${2:field} ${4:value}",
+            tabTrigger: "if_else"
+        },
+        {
+            name: "FILTER...END",
+            content: "FILTER <<END\n    ${1}\nEND\n",
+            tabTrigger: "filter"
+        },
+        {
+            name: "dropdown",
+            content: "<${1:oa_field} ${2:ns_field}>\n    ${3:ns_value} ${4:oa_value}\n</${1}>\n",
+            tabTrigger: "dropdown"
+        }];
+    }
 
 }());
 
@@ -150,27 +203,37 @@
         document.getElementById(arr[0]).parentNode.classList.remove("active");
     }
 
-    function searchForString(ev) {
-        var key_code = ev.keyCode;
-        if (key_code !== 13) { return; }
-        console.log(ev);
-
-        var needle = document.getElementById("nsoa-search-term").value;
-
-        var editor = ace.edit("nsoa-editor");
-        editor.find(needle, {
-            backwards: false,
-            wrap: false,
-            caseSensitive: false,
-            wholeWord: false,
-            regExp: false
-        });
+    // show cheat sheet
+    function cheatSheet(ev) {
+        var id = ev.target.id;
+        document.getElementById(id).parentNode.classList.toggle("active-dc");
+        document.getElementById("nsoa-cheat-sheet").classList.toggle("nsoa-hidden");
     }
+
+    // BETA function - do not use
+    // function searchForString(ev) {
+    //     var key_code = ev.keyCode;
+    //     if (key_code !== 13) { return; }
+    //     console.log(ev);
+
+    //     var needle = document.getElementById("nsoa-search-term").value;
+
+    //     var editor = ace.edit("nsoa-editor");
+    //     editor.find(needle, {
+    //         backwards: false,
+    //         wrap: false,
+    //         caseSensitive: false,
+    //         wholeWord: false,
+    //         regExp: false
+    //     });
+    // }
 
     var el_df = document.getElementById("nsoa-docs-full"),
         el_db = document.getElementById("nsoa-docs-backoffice"),
         el_dg = document.getElementById("nsoa-docs-guide"),
         el_ds = document.getElementById("nsoa-docs-schema"),
+
+        el_dc = document.getElementById("nsoa-docs-cheats"),
 
         el_st = document.getElementById("nsoa-search-term"),
         el_sb = document.getElementById("nsoa-search-btn"),
@@ -186,6 +249,8 @@
     el_db.addEventListener("click", iframeSource, false);
     el_dg.addEventListener("click", iframeSource, false);
     el_ds.addEventListener("click", iframeSource, false);
+
+    el_dc.addEventListener("click", cheatSheet, false);
 
     // el_st.addEventListener("keydown", searchForString, false);
     // el_sb.addEventListener("click", searchForString, false);

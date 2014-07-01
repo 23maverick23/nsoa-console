@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>NSOA Console</title>
+    <title>NSOA</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="css/nsoa_console.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
 </head>
@@ -21,6 +22,9 @@
                     </li>
                     <li class="nsoa-toolbar-btn">
                         <a href="#" id="nsoa-docs-schema" title="Click to show 13.2 schema documentation"><i class="fa fa-globe"></i> Schema Browser</a>
+                    </li>
+                    <li class="nsoa-toolbar-btn nsoa-toolbar-btn-warning">
+                        <a href="#" id="nsoa-docs-cheats" title="Click to show NSOA cheat sheet"><i class="fa fa-file-code-o"></i> Cheat Sheet</a>
                     </li>
                 </ul>
 
@@ -65,6 +69,43 @@
             </div>
         </div>
     </nav>
+
+    <div id="nsoa-cheat-sheet" class="nsoa-hidden">
+        <div class="nsoa-container-fluid">
+            <ul class="nsoa-list-group">
+                <li class="nsoa-list-group-item">
+                    <h4>Autocomplete</h4>
+                </li>
+                <li class="nsoa-list-group-item">Enable by typing <kbd>&lt;</kbd> or <kbd>_</kbd> anywhere in the editor</li>
+                <li class="nsoa-list-group-item">Or type <kbd>ctrl</kbd> + <kbd>space</kbd> anywhere in the editor</li>
+                <li class="nsoa-list-group-item">Navigate suggestions with <kbd>&#x25B2;</kbd> and <kbd>&#x25BC;</kbd> arrows</li>
+                <li class="nsoa-list-group-item">Add suggestions with <kbd>tab</kbd> or <kbd>enter</kbd> or click</li>
+            </ul>
+            <ul class="nsoa-list-group">
+                <li class="nsoa-list-group-item">
+                    <h4>Snippets</h4>
+                </li>
+                <li class="nsoa-list-group-item">Type a snippet name then press <kbd>tab</kbd></li>
+                <li class="nsoa-list-group-item">Choose a snippet from the autocomplete list</li>
+                <li class="nsoa-list-group-item">
+                    <h5>Available snippets</h5>
+                    <p><strong>dropdown</strong> <span class="nsoa-code">&lt;${1:oa_field} ${2:ns_field}&gt;...</span></p>
+                    <p><strong>filter</strong> <span class="nsoa-code">FILTER &lt;&lt;END...END</span></p>
+                    <p><strong>if_end</strong> <span class="nsoa-code">IF &lt;&lt;END...END</span></p>
+                    <p><strong>if_then</strong> <span class="nsoa-code">IF ${1:condition} THEN...</span></p>
+                    <p><strong>if_else</strong> <span class="nsoa-code">IF ${1:condition} THEN...ELSE...</span></p>
+                    <p><strong>lookup</strong> <span class="nsoa-code">lookup=${1:ns_field}:lookup_table=...</span></p>
+                </li>
+            </ul>
+            <ul class="nsoa-list-group">
+                <li class="nsoa-list-group-item">
+                    <h4>Mapping Storage</h4>
+                </li>
+                <li class="nsoa-list-group-item">Double-click <em>Save Mappings</em> to save for later</li>
+                <li class="nsoa-list-group-item">Double-click <em>Clear Mappings</em> to clear storage</li>
+            </ul>
+        </div>
+    </div>
 
     <div id="nsoa-docs">
         <iframe src="https://www.openair1.com/docs/netsuite.html" width="100%" height="100%" frameBorder="0" seamless="seamless"></iframe>
