@@ -1,7 +1,9 @@
 (function(){
     var clickHandler = function(e) {
         var url = e.pageUrl;
+        alert(url);
         console.log("NSOA debug >>> " + url);
+        console.dir(e);
 
         if (e.selectionText) {
             console.log('NSOA debug >>> ' + e.selectionText);
