@@ -16,7 +16,7 @@ var XmlHighlightRules = function(normalize) {
                 token : ["punctuation.instruction.xml", "keyword.instruction.xml"],
                 regex : "(<\\?)([-_a-zA-Z0-9]+)", next : "processing_instruction",
             },
-            {token : "comment.xml", regex : "<\\!--", next : "comment"},
+            // {token : "comment.xml", regex : "<\\!--", next : "comment"},
             {
                 token : ["xml-pe.doctype.xml", "xml-pe.doctype.xml"],
                 regex : "(<\\!)(DOCTYPE)(?=[\\s])", next : "doctype", caseInsensitive: true
@@ -100,10 +100,10 @@ var XmlHighlightRules = function(normalize) {
             {token : "text.xml", regex : "(?:[^\\]]|\\](?!\\]>))+"}
         ],
 
-        comment : [
-            {token : "comment.xml", regex : "-->", next : "start"},
-            {defaultToken : "comment.xml"}
-        ],
+        // comment : [
+        //     {token : "comment.xml", regex : "-->", next : "start"},
+        //     {defaultToken : "comment.xml"}
+        // ],
 
         reference : [{
             token : "constant.language.escape.reference.xml",
@@ -727,7 +727,8 @@ oop.inherits(Mode, TextMode);
 
     this.voidElements = lang.arrayToMap([]);
 
-    this.blockComment = {start: "<!--", end: "-->"};
+    // this.blockComment = {start: "<!--", end: "-->"};
+    this.blockComment = {start: "# ", end: ""};
 
     this.$id = "ace/mode/xml";
 }).call(Mode.prototype);

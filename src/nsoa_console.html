@@ -12,60 +12,45 @@
             <div class="nsoa-container-collapse">
                 <ul class="nsoa-nav">
                     <li class="nsoa-toolbar-btn">
-                        <a href="#" id="nsoa-docs-full" title="Click to use full width documentation"><i class="fa fa-arrows-alt"></i> Full Docs</a>
+                        <a href="#" id="nsoa-docs-full" title="Click to use full width documentation"><i class="fa fa-arrows-alt"></i></a>
                     </li>
                     <li class="nsoa-toolbar-btn active">
-                        <a href="#" id="nsoa-docs-backoffice" title="Click show backoffice documentation"><i class="fa fa-building"></i> Backoffice</a>
+                        <a href="#" id="nsoa-docs-backoffice" title="Click show backoffice documentation"><i class="fa fa-building"></i></a>
                     </li>
                     <li class="nsoa-toolbar-btn">
-                        <a href="#" id="nsoa-docs-guide" title="Click to show PDF guide documentation"><i class="fa fa-book"></i> PDF Guide</a>
+                        <a href="#" id="nsoa-docs-guide" title="Click to show PDF guide documentation"><i class="fa fa-book"></i></a>
                     </li>
                     <li class="nsoa-toolbar-btn">
-                        <a href="#" id="nsoa-docs-schema" title="Click to show 13.2 schema documentation"><i class="fa fa-globe"></i> Schema Browser</a>
+                        <a href="#" id="nsoa-docs-schema" title="Click to show 13.2 schema documentation"><i class="fa fa-globe"></i></a>
                     </li>
                     <li class="nsoa-toolbar-btn nsoa-toolbar-btn-warning">
-                        <a href="#" id="nsoa-docs-cheats" title="Click to show NSOA cheat sheet"><i class="fa fa-file-code-o"></i> Cheat Sheet</a>
+                        <a href="#" id="nsoa-docs-cheats" title="Click to show NSOA cheat sheet"><i class="fa fa-file-code-o"></i></a>
                     </li>
                 </ul>
 
                 <ul class="nsoa-nav pull-right">
                     <li class="nsoa-toolbar-btn nsoa-toolbar-btn-danger">
-                        <a href="#" id="nsoa-console-clear" title="Double-click to clear editor contents">Clear Mappings <i class="fa fa-ban"></i></a>
+                        <a href="#" id="nsoa-console-clear" title="Double-click to clear editor contents"><i class="fa fa-ban"></i></a>
                     </li>
                     <li class="nsoa-toolbar-btn">
-                        <a href="#" id="nsoa-console-save" title="Double-click to save editor contents to localStorage">Save Mappings <i class="fa fa-save"></i></a>
+                        <a href="#" id="nsoa-console-save" title="Double-click to save editor contents to localStorage"><i class="fa fa-save"></i></a>
                     </li>
                     <li class="nsoa-toolbar-btn">
-                        <a href="#" id="nsoa-theme-day" title="Click to use light theme">Day Mode <i class="fa fa-sun-o"></i></a>
+                        <a href="#" id="nsoa-theme-day" title="Click to use light theme"><i class="fa fa-sun-o"></i></a>
                     </li>
                     <li class="nsoa-toolbar-btn active">
-                        <a href="#" id="nsoa-theme-night" title="Click to use dark theme">Night Mode <i class="fa fa-moon-o"></i></a>
+                        <a href="#" id="nsoa-theme-night" title="Click to use dark theme"><i class="fa fa-moon-o"></i></a>
                     </li>
                     <li class="nsoa-toolbar-btn">
-                        <a href="#" id="nsoa-console-full" title="Click to use full width editor">Full Console <i class="fa fa-arrows-alt"></i></a>
+                        <a href="#" id="nsoa-console-full" title="Click to use full width editor"><i class="fa fa-arrows-alt"></i></a>
                     </li>
                 </ul>
 
-                <!-- BETA
-                <ul class="nsoa-nav nsoa-nav-search pull-right">
-                    <li class="nsoa-toolbar-btn">
-                        <form class="nsoa-form" role="search">
-                            <div class="nsoa-form-group">
-                                <input id="nsoa-search-term" type="text" class="nsoa-form-control" placeholder="Search mappings">
-                            </div>
-                        </form>
-                    </li>
-                    <li class="nsoa-toolbar-btn">
-                        <a href="#" id="nsoa-search-btn"><i class="fa fa-search"></i> Search</a>
-                    </li>
-                    <li class="nsoa-toolbar-btn">
-                        <a href="#" id="nsoa-search-prev"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="nsoa-toolbar-btn">
-                        <a href="#" id="nsoa-search-next"><i class="fa fa-chevron-down"></i></a>
+                <ul class="nsoa-nav nsoa-nav-text pull-right">
+                    <li id="nsoa-console-autosave">
+                        <span>Auto-save every 30 seconds</span><i class="fa fa-refresh fa-spin"></i>
                     </li>
                 </ul>
-                -->
             </div>
         </div>
     </nav>
@@ -74,21 +59,20 @@
         <div class="nsoa-container-fluid">
             <ul class="nsoa-list-group">
                 <li class="nsoa-list-group-item">
-                    <h4>Autocomplete</h4>
+                    <h4>Enable Autocomplete</h4>
                 </li>
                 <li class="nsoa-list-group-item">Enable by typing <kbd>&lt;</kbd> or <kbd>_</kbd> anywhere in the editor</li>
-                <li class="nsoa-list-group-item">Or type <kbd>ctrl</kbd> + <kbd>space</kbd> anywhere in the editor</li>
-                <li class="nsoa-list-group-item">Navigate suggestions with <kbd>&#x25B2;</kbd> and <kbd>&#x25BC;</kbd> arrows</li>
-                <li class="nsoa-list-group-item">Add suggestions with <kbd>tab</kbd> or <kbd>enter</kbd> or click</li>
+                <li class="nsoa-list-group-item">Or type <kbd>Ctrl</kbd> + <kbd>Space</kbd> anywhere in the editor</li>
+                <li class="nsoa-list-group-item">Navigate suggestions with <kbd>Up</kbd> and <kbd>Down</kbd> arrows</li>
+                <li class="nsoa-list-group-item">Add suggestions with <kbd>Tab</kbd> or <kbd>Enter</kbd> or click</li>
             </ul>
             <ul class="nsoa-list-group">
                 <li class="nsoa-list-group-item">
-                    <h4>Snippets</h4>
+                    <h4>Autocomplete Snippets</h4>
                 </li>
-                <li class="nsoa-list-group-item">Type a snippet name then press <kbd>tab</kbd></li>
+                <li class="nsoa-list-group-item">Type a snippet name then press <kbd>Tab</kbd></li>
                 <li class="nsoa-list-group-item">Choose a snippet from the autocomplete list</li>
                 <li class="nsoa-list-group-item">
-                    <h5>Available snippets</h5>
                     <p><strong>dropdown</strong> <span class="nsoa-code">&lt;${1:oa_field} ${2:ns_field}&gt;...</span></p>
                     <p><strong>filter</strong> <span class="nsoa-code">FILTER &lt;&lt;END...END</span></p>
                     <p><strong>if_end</strong> <span class="nsoa-code">IF &lt;&lt;END...END</span></p>
@@ -99,10 +83,88 @@
             </ul>
             <ul class="nsoa-list-group">
                 <li class="nsoa-list-group-item">
-                    <h4>Mapping Storage</h4>
+                    <h4>Keyboard Shortcuts</h4>
                 </li>
-                <li class="nsoa-list-group-item">Double-click <em>Save Mappings</em> to save for later</li>
-                <li class="nsoa-list-group-item">Double-click <em>Clear Mappings</em> to clear storage</li>
+                <li class="nsoa-list-group-item">
+                    Toggle comment
+                    <span class="nsoa-hidden nsoa-platform-win"><kbd>Ctrl</kbd> + <kbd>/</kbd></span>
+                    <span class="nsoa-hidden nsoa-platform-mac"><kbd>Command</kbd> + <kbd>/</kbd></span>
+                </li>
+                <li class="nsoa-list-group-item">
+                    Undo last action
+                    <span class="nsoa-hidden nsoa-platform-win"><kbd>Ctrl</kbd> + <kbd>Z</kbd></span>
+                    <span class="nsoa-hidden nsoa-platform-mac"><kbd>Command</kbd> + <kbd>Z</kbd></span>
+                </li>
+                <li class="nsoa-list-group-item">
+                    Find
+                    <span class="nsoa-hidden nsoa-platform-win"><kbd>Ctrl</kbd> + <kbd>F</kbd></span>
+                    <span class="nsoa-hidden nsoa-platform-mac"><kbd>Command</kbd> + <kbd>F</kbd></span>
+                </li>
+                <li class="nsoa-list-group-item">
+                    Find next
+                    <span class="nsoa-hidden nsoa-platform-win"><kbd>Ctrl</kbd> + <kbd>K</kbd></span>
+                    <span class="nsoa-hidden nsoa-platform-mac"><kbd>Command</kbd> + <kbd>G</kbd></span>
+                </li>
+                <li class="nsoa-list-group-item">
+                    Find previous
+                    <span class="nsoa-hidden nsoa-platform-win"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd></span>
+                    <span class="nsoa-hidden nsoa-platform-mac"><kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd></span>
+                </li>
+                <li class="nsoa-list-group-item">
+                    Replace
+                    <span class="nsoa-hidden nsoa-platform-win"><kbd>Ctrl</kbd> + <kbd>R</kbd></span>
+                    <span class="nsoa-hidden nsoa-platform-mac"><kbd>Command</kbd> + <kbd>Option</kbd> + <kbd>F</kbd></span>
+                </li>
+                <li class="nsoa-list-group-item">
+                    Replace all
+                    <span class="nsoa-hidden nsoa-platform-win"><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd></span>
+                    <span class="nsoa-hidden nsoa-platform-mac"><kbd>Command</kbd> + <kbd>Shift</kbd> + <kbd>Option</kbd> + <kbd>F</kbd></span>
+                </li>
+                <li class="nsoa-list-group-item">
+                    Fold all sections
+                    <span class="nsoa-hidden nsoa-platform-win"><kbd>Alt</kbd> + <kbd>0</kbd></span>
+                    <span class="nsoa-hidden nsoa-platform-mac"><kbd>Command</kbd> + <kbd>Option</kbd> + <kbd>0</kbd></span>
+                </li>
+                <li class="nsoa-list-group-item">
+                    Unfold all sections
+                    <span class="nsoa-hidden nsoa-platform-win"><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>0</kbd></span>
+                    <span class="nsoa-hidden nsoa-platform-mac"><kbd>Command</kbd> + <kbd>Option</kbd> + <kbd>Shift</kbd> + <kbd>0</kbd></span>
+                </li>
+                <li class="nsoa-list-group-item">
+                    Move lines up
+                    <span class="nsoa-hidden nsoa-platform-win"><kbd>Alt</kbd> + <kbd>Up</kbd></span>
+                    <span class="nsoa-hidden nsoa-platform-mac"><kbd>Option</kbd> + <kbd>Up</kbd></span>
+                </li>
+                <li class="nsoa-list-group-item">
+                    Move lines down
+                    <span class="nsoa-hidden nsoa-platform-win"><kbd>Alt</kbd> + <kbd>Down</kbd></span>
+                    <span class="nsoa-hidden nsoa-platform-mac"><kbd>Option</kbd> + <kbd>Down</kbd></span>
+                </li>
+                <li class="nsoa-list-group-item">
+                    Add multi-cursor above
+                    <span class="nsoa-hidden nsoa-platform-win"><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Up</kbd></span>
+                    <span class="nsoa-hidden nsoa-platform-mac"><kbd>Ctrl</kbd> + <kbd>Option</kbd> + <kbd>Up</kbd></span>
+                </li>
+                <li class="nsoa-list-group-item">
+                    Add multi-cursor below
+                    <span class="nsoa-hidden nsoa-platform-win"><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Down</kbd></span>
+                    <span class="nsoa-hidden nsoa-platform-mac"><kbd>Ctrl</kbd> + <kbd>Option</kbd> + <kbd>Down</kbd></span>
+                </li>
+                <li class="nsoa-list-group-item">
+                    Add next occurance
+                    <span class="nsoa-hidden nsoa-platform-win"><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Right</kbd></span>
+                    <span class="nsoa-hidden nsoa-platform-mac"><kbd>Ctrl</kbd> + <kbd>Option</kbd> + <kbd>Right</kbd></span>
+                </li>
+                <li class="nsoa-list-group-item">
+                    Add previous occurance
+                    <span class="nsoa-hidden nsoa-platform-win"><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Left</kbd></span>
+                    <span class="nsoa-hidden nsoa-platform-mac"><kbd>Ctrl</kbd> + <kbd>Option</kbd> + <kbd>Left</kbd></span>
+                </li>
+                <li class="nsoa-list-group-item">
+                    Go to line #
+                    <span class="nsoa-hidden nsoa-platform-win"><kbd>Ctrl</kbd> + <kbd>L</kbd></span>
+                    <span class="nsoa-hidden nsoa-platform-mac"><kbd>Command</kbd> + <kbd>L</kbd></span>
+                </li>
             </ul>
         </div>
     </div>
@@ -118,6 +180,7 @@
 <script src="store/store.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="ace/src/ace.js" type="text/javascript" charset="utf-8"></script>
 <script src="ace/src/ext-language_tools.js" type="text/javascript" charset="utf-8"></script>
+<script src="ace/src/ext-searchbox.js" type="text/javascript" charset="utf-8"></script>
 
 <script src="ace/src/mode-xml.js" type="text/javascript" charset="utf-8"></script>
 <script src="ace/src/theme-tomorrow_night.js" type="text/javascript" charset="utf-8"></script>

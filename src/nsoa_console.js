@@ -41,7 +41,9 @@
 
     });
 
+    // ace.require("ace/multi_select");
     ace.require("ace/ext/language_tools");
+    ace.require("ace/ext/searchbox");
 
     editor.commands.on("afterExec", function(e){
         if (e.command.name == "insertstring" && /^[\<_]$/.test(e.args)) {
@@ -55,6 +57,18 @@
 
     editor.navigateFileEnd();
     editor.focus();
+
+    try {
+        setInterval(function() {
+            var new_val = editor.getSession().getValue();
+            store.set('nsoa.editor.value', new_val);
+        }, 30000);  // every 30 seconds
+    } catch (e) {
+        // If any errors, catch and alert the user
+        if (e == QUOTA_EXCEEDED_ERR) {
+            alert('Quota exceeded!');
+        }
+    }
 
     function nsoaGetSnippets() {
         return [{
@@ -91,23 +105,6 @@
 
 }());
 
-// EXPERIMENTAL - LEAVE DISABLED FOR NOW
-// (function(){
-//     var editor = ace.edit("nsoa-editor");
-//     // attempt to auto-save content to localStorage
-//     try {
-//         setInterval(function() {
-//             var new_val = editor.getSession().getValue();
-//             store.set('nsoa.editor.value', new_val);
-//         }, 30000);  // every 30 seconds
-//     } catch (e) {
-//         // If any errors, catch and alert the user
-//         if (e == QUOTA_EXCEEDED_ERR) {
-//             alert('Quota exceeded!');
-//         }
-//     }
-// }());
-
 (function(){
     // documentation panel full width
     function docsPanelFull() {
@@ -138,7 +135,7 @@
 
     // change the source of the iframe
     function iframeSource(ev) {
-        var id = ev.target.id,
+        var id = (ev.target.id) ? ev.target.id : ev.target.parentNode.id,
             url = "",
             arr = ["nsoa-docs-backoffice", "nsoa-docs-guide", "nsoa-docs-schema"];
 
@@ -171,8 +168,8 @@
     // clear editor content and localStorage
     function consoleClearAll() {
         var editor = ace.edit("nsoa-editor");
-        editor.setValue('', 0);
-        store.remove("nsoa.editor.value");
+        editor.setValue("", 0);
+        store.set("nsoa.editor.value", "");
     }
 
     // save editor content to localStorage
@@ -183,7 +180,7 @@
 
     // change the theme of the ace editor
     function editorTheme(ev) {
-        var id = ev.target.id,
+        var id = (ev.target.id) ? ev.target.id : ev.target.parentNode.id,
             editor = ace.edit("nsoa-editor"),
             arr = ["nsoa-theme-day", "nsoa-theme-night"];
 
@@ -205,28 +202,23 @@
 
     // show cheat sheet
     function cheatSheet(ev) {
-        var id = ev.target.id;
+        var isWindows = navigator.platform.toUpperCase().indexOf('WIN') !== -1;
+        var els;
+
+        if (isWindows) {
+            els = document.getElementsByClassName("nsoa-platform-win");
+        } else {
+            els = document.getElementsByClassName("nsoa-platform-mac");
+        }
+
+        for (var i = 0; i < els.length; i++) {
+            els[i].classList.toggle("nsoa-hidden");
+        }
+
+        var id = (ev.target.id) ? ev.target.id : ev.target.parentNode.id;
         document.getElementById(id).parentNode.classList.toggle("active-dc");
         document.getElementById("nsoa-cheat-sheet").classList.toggle("nsoa-hidden");
     }
-
-    // BETA function - do not use
-    // function searchForString(ev) {
-    //     var key_code = ev.keyCode;
-    //     if (key_code !== 13) { return; }
-    //     console.log(ev);
-
-    //     var needle = document.getElementById("nsoa-search-term").value;
-
-    //     var editor = ace.edit("nsoa-editor");
-    //     editor.find(needle, {
-    //         backwards: false,
-    //         wrap: false,
-    //         caseSensitive: false,
-    //         wholeWord: false,
-    //         regExp: false
-    //     });
-    // }
 
     var el_df = document.getElementById("nsoa-docs-full"),
         el_db = document.getElementById("nsoa-docs-backoffice"),
@@ -234,9 +226,6 @@
         el_ds = document.getElementById("nsoa-docs-schema"),
 
         el_dc = document.getElementById("nsoa-docs-cheats"),
-
-        el_st = document.getElementById("nsoa-search-term"),
-        el_sb = document.getElementById("nsoa-search-btn"),
 
         el_cc = document.getElementById("nsoa-console-clear"),
         el_cs = document.getElementById("nsoa-console-save"),
@@ -251,9 +240,6 @@
     el_ds.addEventListener("click", iframeSource, false);
 
     el_dc.addEventListener("click", cheatSheet, false);
-
-    // el_st.addEventListener("keydown", searchForString, false);
-    // el_sb.addEventListener("click", searchForString, false);
 
     el_cc.addEventListener("dblclick", consoleClearAll, false);
     el_cs.addEventListener("dblclick", consoleSaveAll, false);

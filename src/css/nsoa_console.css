@@ -38,6 +38,55 @@ nav {
     -webkit-box-shadow: none;
     box-shadow: none;
 }
+.nsoa-row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.nsoa-col-1, .nsoa-col-2, .nsoa-col-3, .nsoa-col-4, .nsoa-col-5, .nsoa-col-6, .nsoa-col-7, .nsoa-col-8, .nsoa-col-9, .nsoa-col-10, .nsoa-col-11, .nsoa-col-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.nsoa-col-1, .nsoa-col-2, .nsoa-col-3, .nsoa-col-4, .nsoa-col-5, .nsoa-col-6, .nsoa-col-7, .nsoa-col-8, .nsoa-col-9, .nsoa-col-10, .nsoa-col-11, .nsoa-col-12 {
+    float: left;
+}
+.nsoa-col-12 {
+    width: 100%;
+}
+.nsoa-col-11 {
+    width: 91.66666667%;
+}
+.nsoa-col-10 {
+    width: 83.33333333%;
+}
+.nsoa-col-9 {
+    width: 75%;
+}
+.nsoa-col-8 {
+    width: 66.66666667%;
+}
+.nsoa-col-7 {
+    width: 58.33333333%;
+}
+.nsoa-col-6 {
+    width: 50%;
+}
+.nsoa-col-5 {
+    width: 41.66666667%;
+}
+.nsoa-col-4 {
+    width: 33.33333333%;
+}
+.nsoa-col-3 {
+    width: 25%;
+}
+.nsoa-col-2 {
+    width: 16.66666667%;
+}
+.nsoa-col-1 {
+    width: 8.33333333%;
+}
 .nsoa-nav {
     padding-left: 0;
     margin-bottom: 0;
@@ -45,7 +94,7 @@ nav {
     float: left;
     margin: 0;
 }
-.nsoa-nav-search {
+.nsoa-nav-text {
     position: fixed;
     left: 50%;
 }
@@ -64,7 +113,7 @@ nav {
     color: #373b41;
     border-bottom: 0;
 }
-.nsoa-nav > li > a:hover {
+.nsoa-nav > li.nsoa-toolbar-btn > a:hover {
     color: #282a2e;
     background-color: #81a2be;
 }
@@ -145,11 +194,15 @@ nav {
     border-bottom-right-radius: 4px;
     border-bottom-left-radius: 4px;
 }
+.nsoa-platform-mac, .nsoa-platform-win {
+    float: right;
+}
 kbd {
     font-family: Monaco, Menlo, monospace;
-    font-size: 12pt;
+    font-size: 9pt;
+    text-transform: capitalize;
     border: 1px solid #969896;
-    padding: 2px 8px;
+    padding: 1px 5px;
     border-radius: 3px;
     color: #a3685a;
     background-color: #ffffff;
@@ -192,6 +245,17 @@ kbd {
     clip: rect(0 0 0 0);
     height: 1px; width: 1px;
     margin: -1px; padding: 0; border: 0;
+}
+#nsoa-console-autosave {
+    font-size: 9pt;
+    vertical-align: middle;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    cursor: default;
+    user-select: none;
+}
+#nsoa-console-autosave span {
+    padding-right: 10px;
 }
 .nsoa-form {
     width: auto;
