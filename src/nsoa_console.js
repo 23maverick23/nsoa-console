@@ -137,11 +137,14 @@
     function iframeSource(ev) {
         var id = (ev.target.id) ? ev.target.id : ev.target.parentNode.id,
             url = "",
-            arr = ["nsoa-docs-backoffice", "nsoa-docs-guide", "nsoa-docs-schema"];
+            arr = ["nsoa-docs-backoffice", "nsoa-docs-dictionary", "nsoa-docs-guide", "nsoa-docs-schema"];
 
         switch (id) {
             case "nsoa-docs-backoffice":
                 url = "https://www.openair1.com/docs/netsuite.html";
+                break;
+            case "nsoa-docs-dictionary":
+                url = "https://www.openair.com/database/single_user.html";
                 break;
             case "nsoa-docs-guide":
                 url = "http://www.openair.com/download/NetSuiteOpenAirNSIntegrationGuide.pdf";
@@ -222,6 +225,7 @@
 
     var el_df = document.getElementById("nsoa-docs-full"),
         el_db = document.getElementById("nsoa-docs-backoffice"),
+        el_do = document.getElementById("nsoa-docs-dictionary"),
         el_dg = document.getElementById("nsoa-docs-guide"),
         el_ds = document.getElementById("nsoa-docs-schema"),
 
@@ -236,6 +240,7 @@
 
     el_df.addEventListener("click", docsPanelFull, false);
     el_db.addEventListener("click", iframeSource, false);
+    el_do.addEventListener("click", iframeSource, false);
     el_dg.addEventListener("click", iframeSource, false);
     el_ds.addEventListener("click", iframeSource, false);
 

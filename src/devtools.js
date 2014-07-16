@@ -10,14 +10,22 @@
         }
     );
 
+    // chrome.devtools.inspectedWindow.eval(
+    //     "setSelectedElement($0)",
+    //     {
+    //         useContentScriptContext: true
+    //     }
+    // );
+
     // var tabId = chrome.devtools.inspectedWindow.tabId;
 
+    // // Create a connection to the background page
     // var backgroundPageConnection = chrome.runtime.connect({
-    //     name: "devtools-page"
+    //     name: "panel"
     // });
 
-    // chrome.runtime.sendMessage({
-    //     tabId: chrome.devtools.inspectedWindow.tabId,
-    //     scriptToInject: "content.js"
+    // backgroundPageConnection.postMessage({
+    //     name: 'init',
+    //     tabId: tabId
     // });
 }());

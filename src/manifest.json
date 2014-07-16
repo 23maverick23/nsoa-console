@@ -9,6 +9,12 @@
     // "background": {
     //     "page": "background.html"
     // },
+    // "content_scripts": [
+    //     {
+    //     "matches": ["https://*.openair.com/*", "https://qa.openair1.com/*"],
+    //     "js": ["content.js"]
+    //     }
+    // ],
     "devtools_page": "devtools.html",
     "options_page": "nsoa_console.html",
     "permissions": [

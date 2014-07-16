@@ -15,6 +15,7 @@ Features
 * Inline documentation options
 * Full-width options for documentation and editing
 * Save mappings in localStorage and auto-restore them
+* Auto-save mappings to localStorage every 30 seconds
 
 Installation
 ------------
