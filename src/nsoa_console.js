@@ -150,7 +150,7 @@
                 url = "http://www.openair.com/download/NetSuiteOpenAirNSIntegrationGuide.pdf";
                 break;
             case "nsoa-docs-schema":
-                url = "https://system.netsuite.com/help/helpcenter/en_US/SchemaBrowser/indexv2013_2_0.html";
+                url = "https://system.netsuite.com/help/helpcenter/en_US/SchemaBrowser/indexv2013_1_0.html";
                 break;
             default:
                 url = "https://www.openair1.com/docs/netsuite.html";
